@@ -101,10 +101,14 @@
                   <label for="dicex-input">Значение кубика(урон)</label>
                   <input formControlName = "spellDiceValue" type="text" id="dicex-input" placeholder="">
               </div>
-              <div class="result-container">
+              <div class="spellHit-container">
                   <span>Урон:</span>
                   <span id="dmg-result">{{spellDamage}}</span>
               </div>
+              <div class="spellCrit-container">
+                    <span>Критический Урон:</span>
+                    <span id="dmg-result">{{spellCriticalDamage}}</span>
+                </div>
             </form>
           </div>
           <button id="spellDamageForm" (click)="calculateSpellDamage(spellDamageForm.value)">Go</button>

@@ -8,6 +8,7 @@ export class CalculationsService {
   spellHit: number;
   spellCriticalHit: number;
   spellDamage: number;
+  spellCriticalDamage: number;
 
   constructor() { }
 
@@ -29,8 +30,8 @@ export class CalculationsService {
   }
 
   calculateSpellCast(wisdom, spellLevel){
-      this.spellHit = (20 * spellLevel) - (2 * wisdom);
-      return this.spellHit;
+    this.spellHit = (20 * spellLevel) - (2 * wisdom);
+    return this.spellHit;
   }
 
   calculateSpellCriticalCast(wisdom, spellLevel){
@@ -39,14 +40,12 @@ export class CalculationsService {
   }
 
   calculateSpellDamage(intelligence, spellDamage, diceValue){
-    if (this.spellHit >= this.spellCriticalHit)
-        {
-             this.spellDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 3))/3)));
-             return this.spellDamage;
-        }
-        else {
-             this.spellDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 2))/5)));
-             return this.spellDamage;
-        }
+    this.spellDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 2))/5)));
+    return this.spellDamage;
+  }
+
+  calculateCriticalSpellDamage(intelligence, spellDamage, diceValue){
+    this.spellCriticalDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 3))/3)));
+    return this.spellCriticalDamage;
   }
 }

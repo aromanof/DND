@@ -34,6 +34,7 @@ export class CalculatorComponent implements OnInit {
   spellCast: number;
   spellCriticalCast: number;
   spellDamage: number;
+  spellCriticalDamage: number;
 
   constructor(private calculations: CalculationsService, private fb: FormBuilder) { 
     this.phisicalHitForm = fb.group({
@@ -74,6 +75,7 @@ export class CalculatorComponent implements OnInit {
   }
   calculateSpellDamage(inputForm){
     this.spellDamage = this.calculations.calculateSpellDamage(parseInt(inputForm.intelligence), parseInt(inputForm.spellDamage), parseInt(inputForm.spellDiceValue));
+    this.spellCriticalDamage = this.calculations.calculateCriticalSpellDamage(parseInt(inputForm.intelligence), parseInt(inputForm.spellDamage), parseInt(inputForm.spellDiceValue));
   }
 
 
