@@ -40,12 +40,12 @@ export class CalculationsService {
   }
 
   calculateSpellDamage(intelligence, spellDamage, diceValue){
-    this.spellDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 2))/5)));
+    this.spellDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 2))/3)));
     return this.spellDamage;
   }
 
   calculateCriticalSpellDamage(intelligence, spellDamage, diceValue){
-    this.spellCriticalDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue + (intelligence * 3))/3)));
+    this.spellCriticalDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue * 1.9 + (intelligence * 3))/3)));
     return this.spellCriticalDamage;
   }
 }
