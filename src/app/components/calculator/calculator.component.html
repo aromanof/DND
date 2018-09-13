@@ -1,0 +1,138 @@
+<body class="green">
+    <h1>Calc</h1>
+    <h2>Phisical Damage</h2>
+    {{playerLevel}}
+    {{phisicalHit}}
+    <div class="calc1" class="" id="calc1">
+        <div class="container">
+            <form name="phisicalHitForm" [formGroup]="phisicalHitForm" action="" class="phisicalHitForm" (ngSubmit)="calculatePhisicalHit(phisicalHitForm.value)">
+                <div class="input-wrapper">
+                    <label for="playerLevel-input">Ваш уровень</label>
+                    <input formControlName="playerLevel" name="playerLevelInput" type="text" id="playerLevelInput" placeholder="">
+                </div>
+                <div class="input-wrapper">
+                    <label for="agility-input">Показатель ловкости</label>
+                    <input name="agility" formControlName="agility" type="number" id="agility-input" placeholder="">
+                </div>
+                <div class="input-wrapper">
+                    <label for="enemy-level-input">Уровень противника</label>
+                    <input name="enemyLevelInput" formControlName="enemyLevel" type="number" id="enemy-level-input" placeholder="">
+                </div>
+                <div>
+                    <label for="distance-input">Расстояние в клетках</label>
+                    <input name="distanceInput" formControlName="distance" type="number" id="distance-input" placeholder="">
+                </div>
+            </form>
+            <div class="result-container">
+                <div class="result-wrapper">
+                    <span> Для попадания:</span>
+                    <span class="result" id="hit-result">{{ phisicalHit }}</span>
+                </div>
+                <div class="result-wrapper">
+                    <span> Для крита:</span>
+                    <span class="result" id="crit-result">{{ phisicalCriticalHit }}</span>
+                </div>
+            </div>
+        </div>
+        <button name="calculatePhisicalHit" id="calculatePhisicalHit" (click)="calculatePhisicalHit(phisicalHitForm.value)">Go</button>
+    </div>
+    <div class="calc2" class="tab-pane" id="calc2">
+        <div class="container">
+            <form name="phisicalDamageForm" [formGroup]="phisicalDamageForm" action="" class="phisicalDamageForm" (ngSubmit)="calculatePhisicalDamage(phisicalDamageForm.value)" >
+            <div class="input-wrapper">
+                <label for="strength-input">Показатель силы</label>
+                <input formControlName = "strength" type="text" id="strength-input" placeholder="">
+            </div>
+            <div class="input-wrapper">
+                <label for="damage-input">Показатель урона оружия</label>
+                <input formControlName = "weaponDamage" type="text" id="damage-input" placeholder="">
+            </div>
+            <div class="input-wrapper">
+                <label for="dice-input">Значение кубика</label>
+                <input formControlName = "phisicalDiceValue" type="text" id="dice-input" placeholder="">
+            </div>
+            <div class="result-container">
+                <span>Урон:</span>
+                <span id="damage-result">{{phisicalDamage}}</span>
+            </div>
+        </form>
+        </div>
+        <button id="phisicalDamageForm.value" (click)="calculatePhisicalDamage(phisicalDamageForm.value)">Go</button>
+    </div>
+  
+    <h2>Spell Damage</h2>
+  
+    <div class="calc3" class="tab-pane" id="calc3">
+        <div class="container">
+            <form name="spellHitForm" [formGroup]="spellHitForm" action="" class="spellHitForm" (ngSubmit)="calculateSpellHit(spellHitForm.value)" >
+                <div class="input-wrapper">
+                    <label for="wisdom-input">Показатель разума</label>
+                    <input formControlName = "wisdom" type="text" id="wisdom-input" placeholder="">
+                </div>
+                <div class="input-wrapper">
+                    <label for="slvl-input"> Уровень заклинания</label>
+                    <input formControlName = "spellLevel" type="text" id="slvl-input" placeholder="">
+                </div> 
+                <div class="result-container">
+                    <span>Каст:</span>
+                    <span id="hit-result">{{spellCast}}</span>
+                </div>
+                <div class="result-container">
+                    <span>Каст(крит):</span>
+                    <span id="hitс-result">{{spellCriticalCast}}</span>
+                </div>
+            </form>
+        </div>
+        <button id="spellHitForm" (click)="calculateSpellHit(spellHitForm.value)">Go</button>
+    </div>
+  
+        <div class="calc4" class="tab-pane" id="calc4">
+          <div class="container">
+            <form name="spellDamageForm" [formGroup]="spellDamageForm" action="" class="spellDamageForm" (ngSubmit)="calculateSpellDamage(spellDamageForm.value)" >
+              <div class="input-wrapper">
+                <label for="intellect-input">Показатель интеллекта</label>
+                <input formControlName = "intelligence" type="text" id="intellect-input" placeholder="">
+              </div>
+              <div class="input-wrapper">
+                  <label for="sdmg-input">Урон от заклинания</label>
+                  <input formControlName = "spellDamage" type="text" id="sdmg-input" placeholder="">
+              </div>
+              <div class="input-wrapper">
+                  <label for="dicex-input">Значение кубика(урон)</label>
+                  <input formControlName = "spellDiceValue" type="text" id="dicex-input" placeholder="">
+              </div>
+              <div class="result-container">
+                  <span>Урон:</span>
+                  <span id="dmg-result">{{spellDamage}}</span>
+              </div>
+            </form>
+          </div>
+          <button id="spellDamageForm" (click)="calculateSpellDamage(spellDamageForm.value)">Go</button>
+    </div>
+    <div class="classes-container">
+        <h2>Classes:</h2>
+        <a class="reference" href="DarkElf.jpg">DarkElf</a>
+        <a class="reference" href="Dwarf.jpg">Dwarf</a>
+        <a class="reference" href="Elf.jpg">Elf</a>
+        <a class="reference" href="HightElf.jpg">HightElf</a>
+        <a class="reference" href="Human.jpg">Human</a>
+        <a class="reference" href="Red_ORc.jpg">Red_ORc</a>
+        <a class="reference" href="Vorgen.jpg">Vorgen</a>
+    </div>
+    <div class="talants">
+        <h2>Talants:</h2>
+        <a class="reference" href="talants/ag.jpg">Agility</a>
+        <a class="reference" href="talants/intellect1.jpg">Intellect</a>
+        <a class="reference" href="talants/str.jpg">Strength</a>
+    </div>
+    <!--<div class="themes">
+        <h2>Themes:</h2>
+        <button class="green button-small color-trigger" id="green-color-trigger">Green</button>
+        <button class="red button-small color-trigger" id="red-color-trigger">Red</button>
+        <button class="grey button-small color-trigger" id="grey-color-trigger">Grey</button>
+        <button class="gradient button-small color-trigger" id="gradient-color-trigger">Gradient</buttonv>
+    </div>-->
+    <div class="love">
+        <div>DnD <i class="fa fa-heart" aria-hidden="true"></i></div>
+    </div>
+    </body>

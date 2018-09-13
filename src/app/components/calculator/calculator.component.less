@@ -1,0 +1,143 @@
+h1 {
+    font-size: 46px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+h2{
+    margin: 15px;
+}
+body {
+    color: #f7f7f7;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    transition: .3s;
+}
+label {
+    margin: 0;
+    font-weight: 400;
+}
+input {
+    margin: 4px auto;
+    display: block;
+    padding: 8px 10px;
+    color: black;
+    border: 1px solid #224C5C;
+}
+button {
+    outline: none;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin: 10px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: transparent;
+    font-size: 16px;
+    border: 2px solid #f7f7f7;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.input-wrapper {
+    margin-top: 12px;
+    display: inline-block;
+}
+.result-container {
+    margin-top: 16px;
+}
+.calc2 {
+    margin-top: 40px;
+}
+.tab-content {
+    width: 100%;
+}
+.reference {
+    color: #65B7FF;
+    margin: 0 4px;
+    cursor: pointer;
+}
+.reference:hover {
+    color: #65B7FF;
+    text-decoration: underline;
+}
+.green {
+    background: #206d3f;
+}
+.green input {
+    outline-color: #72f5a6;
+}
+.red {
+    background: #5d0000;
+}
+.grey {
+    background: #546E7A;
+}
+.gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ffff+0,3541b3+99 */
+    background: #00ffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #00ffff 0%, #3541b3 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #00ffff 0%, #3541b3 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #00ffff 0%, #3541b3 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#3541b3', GradientType=0); /* IE6-9 */
+}
+.button-small {
+    font-size: 14px;
+    padding: 6px 16px 4px;
+}
+.button-small:hover {
+    color: inherit;
+}
+@media screen and (min-width: 790px) {
+    .themes {
+        position: ABSOLUTE;
+        bottom: 10px;
+        left: 10px;
+    }
+    .themes h2 {
+        display: inline;
+        vertical-align: sub;
+    }
+    .themes .reference {
+        display: inline;
+    }
+    html {
+        height: 100%;
+    }
+    body {
+        height: 100%;
+    }
+    .love {
+        position: ABSOLUTE;
+        bottom: 10px;
+        right: 20px;
+    }
+    button:hover {
+        color: #0F2F3A;
+        letter-spacing: 2px;
+    }
+    button:after {
+        position: absolute;
+        -webkit-transition: .3s;
+        transition: .3s;
+        content: '';
+        width: 0;
+        left: 50%;
+        bottom: 0;
+        height: 3px;
+        background: #f7f7f7;
+    }
+    button:hover:after {
+        left: -10%;
+        width: 120%;
+    }
+}
