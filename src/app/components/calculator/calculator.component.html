@@ -39,15 +39,15 @@
             <form name="phisicalDamageForm" [formGroup]="phisicalDamageForm" action="" class="phisicalDamageForm" (ngSubmit)="calculatePhisicalDamage(phisicalDamageForm.value)" >
             <div class="input-wrapper">
                 <label for="strength-input">Показатель силы</label>
-                <input formControlName = "strength" type="text" id="strength-input" placeholder="">
+                <input formControlName = "strength" type="number" pattern="\d*" id="strength-input" placeholder="">
             </div>
             <div class="input-wrapper">
                 <label for="damage-input">Показатель урона оружия</label>
-                <input formControlName = "weaponDamage" type="text" id="damage-input" placeholder="">
+                <input formControlName = "weaponDamage" type="number" pattern="\d*" id="damage-input" placeholder="">
             </div>
             <div class="input-wrapper">
                 <label for="dice-input">Значение кубика</label>
-                <input formControlName = "phisicalDiceValue" type="text" id="dice-input" placeholder="">
+                <input formControlName = "phisicalDiceValue" type="number" pattern="\d*" id="dice-input" placeholder="">
             </div>
             <div class="result-container">
                 <span>Урон:</span>
@@ -65,11 +65,11 @@
             <form name="spellHitForm" [formGroup]="spellHitForm" action="" class="spellHitForm" (ngSubmit)="calculateSpellHit(spellHitForm.value)" >
                 <div class="input-wrapper">
                     <label for="wisdom-input">Показатель разума</label>
-                    <input formControlName = "wisdom" type="text" id="wisdom-input" placeholder="">
+                    <input formControlName = "wisdom" type="number" pattern="\d*" id="wisdom-input" placeholder="">
                 </div>
                 <div class="input-wrapper">
                     <label for="slvl-input"> Уровень заклинания</label>
-                    <input formControlName = "spellLevel" type="text" id="slvl-input" placeholder="">
+                    <input formControlName = "spellLevel" type="number" pattern="\d*" id="slvl-input" placeholder="">
                 </div> 
                 <div class="result-container">
                     <span>Каст:</span>
@@ -89,15 +89,15 @@
             <form name="spellDamageForm" [formGroup]="spellDamageForm" action="" class="spellDamageForm" (ngSubmit)="calculateSpellDamage(spellDamageForm.value)" >
               <div class="input-wrapper">
                 <label for="intellect-input">Показатель интеллекта</label>
-                <input formControlName = "intelligence" type="text" id="intellect-input" placeholder="">
+                <input formControlName = "intelligence" type="number" pattern="\d*" id="intellect-input" placeholder="">
               </div>
               <div class="input-wrapper">
                   <label for="sdmg-input">Урон от заклинания</label>
-                  <input formControlName = "spellDamage" type="text" id="sdmg-input" placeholder="">
+                  <input formControlName = "spellDamage" type="number" pattern="\d*" id="sdmg-input" placeholder="">
               </div>
               <div class="input-wrapper">
                   <label for="dicex-input">Значение кубика(урон)</label>
-                  <input formControlName = "spellDiceValue" type="text" id="dicex-input" placeholder="">
+                  <input formControlName = "spellDiceValue" type="number" pattern="\d*" id="dicex-input" placeholder="">
               </div>
               <div class="result-container">
                   <span>Урон:</span>
