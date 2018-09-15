@@ -6,19 +6,19 @@
             <form name="phisicalHitForm" [formGroup]="phisicalHitForm" action="" class="phisicalHitForm" (ngSubmit)="calculatePhisicalHit(phisicalHitForm.value)">
                 <div class="input-wrapper">
                     <label for="playerLevel-input">Ваш уровень</label>
-                    <input formControlName="playerLevel" name="playerLevelInput" type="text" id="playerLevelInput" placeholder="">
+                    <input formControlName="playerLevel" name="playerLevelInput" type="number" pattern="\d*" id="playerLevelInput" placeholder="">
                 </div>
                 <div class="input-wrapper">
                     <label for="agility-input">Показатель ловкости</label>
-                    <input name="agility" formControlName="agility" type="number" id="agility-input" placeholder="">
+                    <input name="agility" formControlName="agility" type="number" pattern="\d*" id="agility-input" placeholder="">
                 </div>
                 <div class="input-wrapper">
                     <label for="enemy-level-input">Уровень противника</label>
-                    <input name="enemyLevelInput" formControlName="enemyLevel" type="number" id="enemy-level-input" placeholder="">
+                    <input name="enemyLevelInput" formControlName="enemyLevel" type="number" pattern="\d*" id="enemy-level-input" placeholder="">
                 </div>
                 <div>
                     <label for="distance-input">Расстояние в клетках</label>
-                    <input name="distanceInput" formControlName="distance" type="number" id="distance-input" placeholder="">
+                    <input name="distanceInput" formControlName="distance" type="number" pattern="\d*" id="distance-input" placeholder="">
                 </div>
             </form>
             <div class="result-container">
