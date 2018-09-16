@@ -2,9 +2,9 @@
   <h1 class="dice-container__header">Dice</h1>
   <div class="dice-container__range">
       <p class="dice-container__range--help">Select the range of the dice</p>
-      <input class="dice-container__range--rangeInput" name="rangeLow" type="number" [(ngModel)]="calculationsService.rangeLow">
+      <input class="dice-container__range--rangeInput" name="rangeLow" type="number" pattern="\d*" [(ngModel)]="calculationsService.rangeLow">
       <div class="dice-container__range--bar">&mdash;</div>
-      <input class="dice-container__range--rangeInput" name="rangeHigh" type="number" [(ngModel)]="calculationsService.rangeHigh">
+      <input class="dice-container__range--rangeInput" name="rangeHigh" type="number" pattern="\d*" [(ngModel)]="calculationsService.rangeHigh">
   </div>
   <div class="dice-container__dice">
     <div class="dice-container__dice--number">
