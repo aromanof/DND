@@ -11,6 +11,9 @@ export class CalculationsService {
   spellDamage: number;
   spellCriticalDamage: number;
 
+  rangeLow: number = 1;
+  rangeHigh: number = 100;
+
   diceRoll = new BehaviorSubject<number>(null);
   diceRollList = new BehaviorSubject<number[]>([]);
 
@@ -68,7 +71,7 @@ export class CalculationsService {
   }
 
   rollDice(newDiceRollList){
-    let diceRoll = Math.floor(Math.random() * 100) + 1;
+    let diceRoll = Math.floor(this.rangeLow + Math.random() * (this.rangeHigh + 1 - this.rangeLow));
     this.updateDiceRoll(diceRoll);
     this.updateDiceRollList(newDiceRollList, diceRoll);
   }
