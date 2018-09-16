@@ -2,16 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routerComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CalculatorComponent } from './components/calculator/calculator.component';
 import { CalculationsService } from './services/calculations.service';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalculatorComponent
+    HeaderComponent,
+    routerComponents
   ],
   imports: [
     BrowserModule,

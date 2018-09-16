@@ -1,0 +1,68 @@
+.dice-container{
+    padding: 20px 0;
+    .dice-container__header{
+        font-size: 46px;
+        text-align: center;
+        color: white;
+    }
+
+    .dice-container__dice{
+        display: block;
+        width: 100%;
+        .dice-container__dice--number{
+            display: block;
+            width: 200px;
+            margin: 15px auto;
+            text-align: center;
+            color: white;
+            font-size: 100px;
+        }
+
+        .dice-container__dice--run-dice{
+            display: block;
+            width: 300px;
+            text-align: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 50px;
+            outline: none;
+            background-color:transparent;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 0.25em;
+            cursor: pointer;
+
+            &:active {
+                color:darkgray;
+                border-color:darkgrey;
+            }
+
+            .button-logo{
+                display: inline;
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .dice-container__dice-history{
+        display: block;
+        width: 100%;
+        .dice-container__dice-history--items{
+            display:flex;
+            flex-flow: row;
+            justify-content: space-evenly;
+            margin: 15px auto;
+            border: 1px solid white;
+            border-radius: 25px;
+            list-style-type: none;
+            max-width: 150px;
+            text-align: center;
+            height: 18px;
+
+            .dice-container__dice-history--items--item{
+                color: white;
+                font-size: 16px;
+            }
+        }
+    }
+}

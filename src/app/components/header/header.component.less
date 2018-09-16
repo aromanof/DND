@@ -1,0 +1,31 @@
+.nav-container{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+}
+
+.nav-container__list{
+    display: inline;
+    margin: 0 auto;
+}
+
+.nav-container__list .nav-container__list--item{
+    display: inline-block;
+    width: auto;
+    padding: 5px 10px;
+    margin: 15px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.nav-container__list .nav-container__list--item:hover{
+    border-bottom: 1px solid grey;
+}
+
+.nav-container__list .nav-container__list--item a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}

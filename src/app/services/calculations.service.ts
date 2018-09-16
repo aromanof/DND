@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class CalculationsService {
@@ -10,7 +11,17 @@ export class CalculationsService {
   spellDamage: number;
   spellCriticalDamage: number;
 
+  diceRoll = new BehaviorSubject<number>(null);
+  diceRollList = new BehaviorSubject<number[]>([]);
+
+  diceRollObserve = this.diceRoll.asObservable();
+  diceRollListObserve = this.diceRollList.asObservable();
   constructor() { }
+
+  updateDiceRoll(newDiceRoll){
+    this.diceRoll.next(newDiceRoll);
+  }
+
 
   calculateHit(playerLevel, agility, enemyLevel, distance){
     const hit = 45 + (4 * enemyLevel + distance * 4) - (agility + (playerLevel * 3));
@@ -47,5 +58,18 @@ export class CalculationsService {
   calculateCriticalSpellDamage(intelligence, spellDamage, diceValue){
     this.spellCriticalDamage = spellDamage + ((spellDamage/100)*(intelligence/3 + ((diceValue * 1.9 + (intelligence * 3))/3)));
     return this.spellCriticalDamage;
+  }
+
+  updateDiceRollList(newDiceRollList, diceRoll){
+    if (newDiceRollList.length === 5)
+      newDiceRollList.shift();
+    newDiceRollList.push(diceRoll);
+    this.diceRollList.next(newDiceRollList);
+  }
+
+  rollDice(newDiceRollList){
+    let diceRoll = Math.floor(Math.random() * 100) + 1;
+    this.updateDiceRoll(diceRoll);
+    this.updateDiceRollList(newDiceRollList, diceRoll);
   }
 }
