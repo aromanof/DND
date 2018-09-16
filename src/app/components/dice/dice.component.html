@@ -12,7 +12,7 @@
   </div>
   <div class="dice-container__dice-history">
     <!-- maybe make it the ul list, which will be appended after dice rolls -->
-    <ul class="dice-container__dice-history--items"> 
+    <ul *ngIf="diceRollList.length > 0" class="dice-container__dice-history--items"> 
       <li class="dice-container__dice-history--items--item" *ngFor="let item of diceRollList">{{item}}</li>
     </ul>
   </div>
