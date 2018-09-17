@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculationsService } from "../../services/calculations.service";
+import { CalculationsService } from '../../services/calculations.service';
 
 @Component({
   selector: 'app-dice',
@@ -13,17 +13,18 @@ export class DiceComponent implements OnInit {
   private diceRollSubscription;
   private diceRollListSubscription;
 
-  constructor(private calculationsService: CalculationsService) { }
+  constructor(private calculationsService: CalculationsService) {
+  }
 
   ngOnInit() {
     this.diceRollSubscription = this.calculationsService.diceRollObserve
       .subscribe(dice => this.diceRoll = dice);
-    
-      this.diceRollListSubscription = this.calculationsService.diceRollListObserve
+
+    this.diceRollListSubscription = this.calculationsService.diceRollListObserve
       .subscribe(diceRollList => this.diceRollList = diceRollList);
   }
 
-  rollDice(){
+  rollDice() {
     this.calculationsService.rollDice(this.diceRollList);
   }
 
