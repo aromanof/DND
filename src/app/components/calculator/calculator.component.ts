@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculatorService } from './calculator.service';
+import { CalculatorService } from './calculators/calculator.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SpellDamageFactors } from './calculators/factors/spell-damage-factors.interface';
+import { SpellCastChance } from './calculators/factors/spell-cast-chance.interface';
+import { PhysicalDamageFactors } from './calculators/factors/physical-damage-factors.interface';
+import { PhysicalHitChanceFactors } from './calculators/factors/physical-hit-chance-factor.interface';
 
 @Component({
   selector: 'app-calculator',
@@ -21,28 +25,28 @@ export class CalculatorComponent implements OnInit {
   // //spellDamage: number;
   // spellDiceValue: number;
 
-  phisicalHitForm: FormGroup;
-  phisicalDamageForm: FormGroup;
+  physicalHitForm: FormGroup;
+  physicalDamageForm: FormGroup;
   spellHitForm: FormGroup;
   spellDamageForm: FormGroup;
 
 
-  phisicalHit: number;
-  phisicalCriticalHit: number;
-  phisicalDamage: number;
+  physicalHit: number;
+  physicalCriticalHit: number;
+  physicalDamage: number;
   spellCast: number;
   spellCriticalCast: number;
   spellDamage: number;
   spellCriticalDamage: number;
 
-  constructor(private calculations: CalculatorService, private fb: FormBuilder) {
-    this.phisicalHitForm = fb.group({
+  constructor(private calculator: CalculatorService, private fb: FormBuilder) {
+    this.physicalHitForm = fb.group({
       'playerLevel': [null, Validators.required],
       'agility': [null, Validators.required],
       'enemyLevel': [null, Validators.required],
       'distance': [null, Validators.required]
     });
-    this.phisicalDamageForm = fb.group({
+    this.physicalDamageForm = fb.group({
       'strength': [null, Validators.required],
       'weaponDamage': [null, Validators.required],
       'phisicalDiceValue': [null, Validators.required]
@@ -62,23 +66,23 @@ export class CalculatorComponent implements OnInit {
 
   }
 
-  calculatePhisicalHit(inputForm) {
-    this.phisicalHit = this.calculations.calculateHit(parseInt(inputForm.playerLevel), parseInt(inputForm.agility), parseInt(inputForm.enemyLevel), parseInt(inputForm.distance));
-    this.phisicalCriticalHit = this.calculations.calculateCriticalHit(parseInt(inputForm.playerLevel), parseInt(inputForm.agility), parseInt(inputForm.enemyLevel), parseInt(inputForm.distance));
+  calculatePhysicalHit(factors: PhysicalHitChanceFactors) {
+    this.physicalHit = this.calculator.calculatePhysicalHitChance(factors);
+    this.physicalCriticalHit = this.calculator.calculateCriticalPhysicalHitChance(factors);
   }
 
-  calculatePhisicalDamage(inputForm) {
-    this.phisicalDamage = this.calculations.calculateDamage(parseInt(inputForm.strength), parseInt(inputForm.weaponDamage), parseInt(inputForm.phisicalDiceValue));
+  calculatePhysicalDamage(factors: PhysicalDamageFactors) {
+    this.physicalDamage = this.calculator.calculatePhysicalDamage(factors);
   }
 
-  calculateSpellHit(inputForm) {
-    this.spellCast = this.calculations.calculateSpellCast(parseInt(inputForm.wisdom), parseInt(inputForm.spellLevel));
-    this.spellCriticalCast = this.calculations.calculateSpellCriticalCast(parseInt(inputForm.wisdom), parseInt(inputForm.spellLevel));
+  calculateSpellHit(factors: SpellCastChance) {
+    this.spellCast = this.calculator.calculateSpellCastChance(factors);
+    this.spellCriticalCast = this.calculator.calculateSpellCriticalCastChance(factors);
   }
 
-  calculateSpellDamage(inputForm) {
-    this.spellDamage = this.calculations.calculateSpellDamage(parseInt(inputForm.intelligence), parseInt(inputForm.spellDamage), parseInt(inputForm.spellDiceValue));
-    this.spellCriticalDamage = this.calculations.calculateCriticalSpellDamage(parseInt(inputForm.intelligence), parseInt(inputForm.spellDamage), parseInt(inputForm.spellDiceValue));
+  calculateSpellDamage(factors: SpellDamageFactors) {
+    this.spellDamage = this.calculator.calculateSpellDamage(factors);
+    this.spellCriticalDamage = this.calculator.calculateCriticalSpellDamage(factors);
   }
 
 
