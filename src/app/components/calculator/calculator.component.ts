@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculationsService } from "../../services/calculations.service";
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { CalculatorService } from './calculator.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-calculator',
@@ -36,7 +35,7 @@ export class CalculatorComponent implements OnInit {
   spellDamage: number;
   spellCriticalDamage: number;
 
-  constructor(private calculations: CalculationsService, private fb: FormBuilder) { 
+  constructor(private calculations: CalculatorService, private fb: FormBuilder) {
     this.phisicalHitForm = fb.group({
       'playerLevel': [null, Validators.required],
       'agility': [null, Validators.required],
@@ -62,18 +61,22 @@ export class CalculatorComponent implements OnInit {
   ngOnInit() {
 
   }
-  calculatePhisicalHit(inputForm){
+
+  calculatePhisicalHit(inputForm) {
     this.phisicalHit = this.calculations.calculateHit(parseInt(inputForm.playerLevel), parseInt(inputForm.agility), parseInt(inputForm.enemyLevel), parseInt(inputForm.distance));
     this.phisicalCriticalHit = this.calculations.calculateCriticalHit(parseInt(inputForm.playerLevel), parseInt(inputForm.agility), parseInt(inputForm.enemyLevel), parseInt(inputForm.distance));
   }
-  calculatePhisicalDamage(inputForm){
-    this.phisicalDamage =  this.calculations.calculateDamage(parseInt(inputForm.strength), parseInt(inputForm.weaponDamage), parseInt(inputForm.phisicalDiceValue));
+
+  calculatePhisicalDamage(inputForm) {
+    this.phisicalDamage = this.calculations.calculateDamage(parseInt(inputForm.strength), parseInt(inputForm.weaponDamage), parseInt(inputForm.phisicalDiceValue));
   }
-  calculateSpellHit(inputForm){
-    this.spellCast =  this.calculations.calculateSpellCast(parseInt(inputForm.wisdom), parseInt(inputForm.spellLevel));
+
+  calculateSpellHit(inputForm) {
+    this.spellCast = this.calculations.calculateSpellCast(parseInt(inputForm.wisdom), parseInt(inputForm.spellLevel));
     this.spellCriticalCast = this.calculations.calculateSpellCriticalCast(parseInt(inputForm.wisdom), parseInt(inputForm.spellLevel));
   }
-  calculateSpellDamage(inputForm){
+
+  calculateSpellDamage(inputForm) {
     this.spellDamage = this.calculations.calculateSpellDamage(parseInt(inputForm.intelligence), parseInt(inputForm.spellDamage), parseInt(inputForm.spellDiceValue));
     this.spellCriticalDamage = this.calculations.calculateCriticalSpellDamage(parseInt(inputForm.intelligence), parseInt(inputForm.spellDamage), parseInt(inputForm.spellDiceValue));
   }

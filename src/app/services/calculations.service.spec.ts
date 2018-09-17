@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CalculationsService } from './calculations.service';
+import { CalculatorService } from '../components/calculator/calculator.service';
 
 describe('CalculationsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CalculationsService]
+      providers: [CalculatorService]
     });
   });
 
-  it('should ...', inject([CalculationsService], (service: CalculationsService) => {
+  it('should ...', inject([CalculatorService], (service: CalculatorService) => {
     expect(service).toBeTruthy();
   }));
 });
