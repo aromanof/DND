@@ -2,9 +2,9 @@
   <h1 class="dice-container__header">Dice</h1>
   <div class="dice-container__range">
       <p class="dice-container__range--help">Select the range of the dice</p>
-      <input class="dice-container__range--rangeInput" name="rangeLow" type="number" pattern="\d*" [(ngModel)]="calculationsService.rangeLow">
+      <input class="dice-container__range--rangeInput" name="rangeLow" type="number" pattern="\d*" [(ngModel)]="diceService.rangeLow">
       <div class="dice-container__range--bar">&mdash;</div>
-      <input class="dice-container__range--rangeInput" name="rangeHigh" type="number" pattern="\d*" [(ngModel)]="calculationsService.rangeHigh">
+      <input class="dice-container__range--rangeInput" name="rangeHigh" type="number" pattern="\d*" [(ngModel)]="diceService.rangeHigh">
   </div>
   <div class="dice-container__dice">
     <div class="dice-container__dice--number">
@@ -18,7 +18,7 @@
   </div>
   <div class="dice-container__dice-history">
     <!-- maybe make it the ul list, which will be appended after dice rolls -->
-    <ul *ngIf="diceRollList.length > 0" class="dice-container__dice-history--items"> 
+    <ul *ngIf="diceRollList.length > 0" class="dice-container__dice-history--items">
       <li class="dice-container__dice-history--items--item" *ngFor="let item of diceRollList">{{item}}</li>
     </ul>
   </div>
