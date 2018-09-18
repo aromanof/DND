@@ -6,7 +6,7 @@ import { PhysicalDamageFactors } from './calculators/factors/physical-damage-fac
 import { PhysicalHitChanceFactors } from './calculators/factors/physical-hit-chance-factor.interface';
 import { PhysicalHitCalculatorService } from './calculators/physical-hit-calculator.service';
 import { SpellCalculatorService } from './calculators/spell-calculator.service';
-import { CalculationsResult } from './calculators/calculator.interface';
+import { CalculationsResult } from './calculators/basic-calculator';
 
 @Component({
   selector: 'app-calculator',
