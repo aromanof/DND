@@ -7,23 +7,23 @@ import { SpellCastChance } from './factors/spell-cast-chance.interface';
 export class SpellCalculatorService extends BasicCalculator<SpellCastChance, SpellDamageFactors> {
   protected readonly config = {
     default: {
-      spellCoefficient: 20,
-      multiplier: 1,
+      chanceMultiplier: 20,
+      damageMultiplier: 1,
     },
     critical: {
-      spellCoefficient: 41,
-      multiplier: 1.9,
+      chanceMultiplier: 41,
+      damageMultiplier: 1.9,
     }
   };
 
   getModeSuccessChance(factors: SpellCastChance, mode: Mode) {
     const config = this.config[mode];
-    return config.spellCoefficient * factors.spellLevel - 2 * factors.wisdom;
+    return config.chanceMultiplier * factors.spellLevel - 2 * factors.wisdom;
   }
 
   getModeDamage(factors: SpellDamageFactors, mode: Mode) {
     const config = this.config[mode];
     return factors.spellDamage + ((factors.spellDamage / 100) * (factors.intelligence / 3 +
-      ((factors.diceValue * config.multiplier + (factors.intelligence * 2)) / 3)));
+      ((factors.diceValue * config.damageMultiplier + (factors.intelligence * 2)) / 3)));
   }
 }

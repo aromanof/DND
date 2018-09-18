@@ -4,7 +4,8 @@ export interface CalculationsResult<T = number> {
 }
 
 interface BaseConfig {
-  multiplier: number;
+  damageMultiplier: number;
+  chanceMultiplier: number;
 }
 
 type CalculatorConfig = CalculationsResult<BaseConfig>;
