@@ -20,9 +20,9 @@ export class PhysicalHitCalculatorService extends BasicCalculator<PhysicalHitCha
 
   getModeSuccessChance(factors: PhysicalHitChanceFactors, mode: Mode) {
     const config = this.config[mode];
-    const criticalHit = config.chanceMultiplier +
-      (4 * factors.enemyLevel + factors.distance * 4) -
-      (factors.agility + (factors.playerLevel * 3));
+    const enemyCoefficient = 4 * factors.enemyLevel + factors.distance * 4;
+    const heroCoefficient = factors.agility + (factors.playerLevel * 3);
+    const criticalHit = config.chanceMultiplier + enemyCoefficient - heroCoefficient;
     return criticalHit >= config.maxDice ? config.maxDice : criticalHit;
   }
 
