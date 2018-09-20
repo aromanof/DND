@@ -3,7 +3,7 @@
     <h2>Physical Damage</h2>
     <div class="calc1" class="" id="calc1">
         <div class="container">
-            <form name="phisicalHitForm" [formGroup]="phisicalHitForm" action="" class="phisicalHitForm" (ngSubmit)="calculatePhisicalHit(phisicalHitForm.value)">
+            <form name="phisicalHitForm" [formGroup]="physicalHitForm" action="" class="phisicalHitForm" (ngSubmit)="calculatePhysicalHit(physicalHitForm.value)">
                 <div class="input-wrapper">
                     <label for="playerLevel-input">Ваш уровень</label>
                     <input formControlName="playerLevel" name="playerLevelInput" type="number" pattern="\d*" id="playerLevelInput" placeholder="">
@@ -24,19 +24,19 @@
             <div class="result-container">
                 <div class="result-wrapper">
                     <span> Для попадания:</span>
-                    <span class="result" id="hit-result">{{ phisicalHit }}</span>
+                    <span class="result" id="hit-result">{{ physicalHit }}</span>
                 </div>
                 <div class="result-wrapper">
                     <span> Для крита:</span>
-                    <span class="result" id="crit-result">{{ phisicalCriticalHit }}</span>
+                    <span class="result" id="crit-result">{{ physicalCriticalHit }}</span>
                 </div>
             </div>
         </div>
-        <button name="calculatePhisicalHit" id="calculatePhisicalHit" (click)="calculatePhisicalHit(phisicalHitForm.value)">Go</button>
+        <button name="calculatePhisicalHit" id="calculatePhisicalHit" (click)="calculatePhysicalHit(physicalHitForm.value)">Go</button>
     </div>
     <div class="calc2" class="tab-pane" id="calc2">
         <div class="container">
-            <form name="phisicalDamageForm" [formGroup]="phisicalDamageForm" action="" class="phisicalDamageForm" (ngSubmit)="calculatePhisicalDamage(phisicalDamageForm.value)" >
+            <form name="phisicalDamageForm" [formGroup]="physicalDamageForm" action="" class="phisicalDamageForm" (ngSubmit)="calculatePhysicalDamage(physicalDamageForm.value)" >
             <div class="input-wrapper">
                 <label for="strength-input">Показатель силы</label>
                 <input formControlName = "strength" type="number" pattern="\d*" id="strength-input" placeholder="">
@@ -51,15 +51,15 @@
             </div>
             <div class="result-container">
                 <span>Урон:</span>
-                <span id="damage-result">{{phisicalDamage}}</span>
+                <span id="damage-result">{{physicalDamage}}</span>
             </div>
         </form>
         </div>
-        <button id="phisicalDamageForm.value" (click)="calculatePhisicalDamage(phisicalDamageForm.value)">Go</button>
+        <button id="phisicalDamageForm.value" (click)="calculatePhysicalDamage(physicalDamageForm.value)">Go</button>
     </div>
-  
+
     <h2>Spell Damage</h2>
-  
+
     <div class="calc3" class="tab-pane" id="calc3">
         <div class="container">
             <form name="spellHitForm" [formGroup]="spellHitForm" action="" class="spellHitForm" (ngSubmit)="calculateSpellHit(spellHitForm.value)" >
@@ -70,7 +70,7 @@
                 <div class="input-wrapper">
                     <label for="slvl-input"> Уровень заклинания</label>
                     <input formControlName = "spellLevel" type="number" pattern="\d*" id="slvl-input" placeholder="">
-                </div> 
+                </div>
                 <div class="result-container">
                     <span>Каст:</span>
                     <span id="hit-result">{{spellCast}}</span>
@@ -83,7 +83,7 @@
         </div>
         <button id="spellHitForm" (click)="calculateSpellHit(spellHitForm.value)">Go</button>
     </div>
-  
+
         <div class="calc4" class="tab-pane" id="calc4">
           <div class="container">
             <form name="spellDamageForm" [formGroup]="spellDamageForm" action="" class="spellDamageForm" (ngSubmit)="calculateSpellDamage(spellDamageForm.value)" >

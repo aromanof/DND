@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * @deprecated since version 2.0
+ */
 @Injectable()
 export class CalculatorService {
   constructor() {
   }
 
-  calculateHit(playerLevel, agility, enemyLevel, distance) {
+  calculateHitChance(playerLevel, agility, enemyLevel, distance) {
     const hit = 45 + (4 * enemyLevel + distance * 4) - (agility + (playerLevel * 3));
     return hit >= 95 ? 95 : hit;
   }
 
-  calculateCriticalHit(playerLevel, agility, enemyLevel, distance) {
+  calculateCriticalHitChance(playerLevel, agility, enemyLevel, distance) {
     const criticalHit = 90 + (4 * enemyLevel + distance * 4) - (agility + (playerLevel * 3));
     return criticalHit >= 100 ? 100 : criticalHit;
   }
 
-  calculateDamage(strength, weaponDamage, diceValue) {
+  calculatePhysicalDamage(strength, weaponDamage, diceValue) {
     return (weaponDamage + (strength * diceValue) / 60);
   }
 
-  calculateSpellCast(wisdom, spellLevel) {
+  calculateSpellCastChance(wisdom, spellLevel) {
     return (20 * spellLevel) - (2 * wisdom);
   }
 
-  calculateSpellCriticalCast(wisdom, spellLevel) {
+  calculateSpellCriticalCastChance(wisdom, spellLevel) {
     return (41 * spellLevel) - (2 * wisdom);
   }
 
