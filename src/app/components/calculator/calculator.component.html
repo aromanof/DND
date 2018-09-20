@@ -24,11 +24,11 @@
             <div class="result-container">
                 <div class="result-wrapper">
                     <span> Для попадания:</span>
-                    <span class="result" id="hit-result">{{ physicalHit }}</span>
+                    <span class="result" id="hit-result">{{ physicalHitChance?.default }}</span>
                 </div>
                 <div class="result-wrapper">
                     <span> Для крита:</span>
-                    <span class="result" id="crit-result">{{ physicalCriticalHit }}</span>
+                    <span class="result" id="crit-result">{{ physicalHitChance?.critical }}</span>
                 </div>
             </div>
         </div>
@@ -47,11 +47,11 @@
             </div>
             <div class="input-wrapper">
                 <label for="dice-input">Значение кубика</label>
-                <input formControlName = "phisicalDiceValue" type="number" pattern="\d*" id="dice-input" placeholder="">
+                <input formControlName = "diceValue" type="number" pattern="\d*" id="dice-input" placeholder="">
             </div>
             <div class="result-container">
                 <span>Урон:</span>
-                <span id="damage-result">{{physicalDamage}}</span>
+                <span id="damage-result">{{physicalDamage?.default}}</span>
             </div>
         </form>
         </div>
@@ -73,11 +73,11 @@
                 </div>
                 <div class="result-container">
                     <span>Каст:</span>
-                    <span id="hit-result">{{spellCast}}</span>
+                    <span id="hit-result">{{spellCastChance?.default}}</span>
                 </div>
                 <div class="result-container">
                     <span>Каст(крит):</span>
-                    <span id="hitс-result">{{spellCriticalCast}}</span>
+                    <span id="hitс-result">{{spellCastChance?.critical}}</span>
                 </div>
             </form>
         </div>
@@ -97,15 +97,15 @@
               </div>
               <div class="input-wrapper">
                   <label for="dicex-input">Значение кубика(урон)</label>
-                  <input formControlName = "spellDiceValue" type="number" pattern="\d*" id="dicex-input" placeholder="">
+                  <input formControlName = "diceValue" type="number" pattern="\d*" id="dicex-input" placeholder="">
               </div>
               <div class="result-container">
                   <span>Урон:</span>
-                  <span id="dmg-result">{{spellDamage}}</span>
+                  <span id="dmg-result">{{spellDamage?.default}}</span>
               </div>
               <div class="result-container">
                     <span>Критический Урон:</span>
-                    <span id="dmg-result">{{spellCriticalDamage}}</span>
+                    <span id="dmg-result">{{spellDamage?.critical}}</span>
                 </div>
             </form>
           </div>
